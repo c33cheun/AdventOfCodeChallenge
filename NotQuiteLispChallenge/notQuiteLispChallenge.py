@@ -26,8 +26,14 @@ file_obj = open("input.txt","r")
 # Main program execution
 brackets = str(file_obj.read())
 s = Stack()
+bracketCount = 0
 
 for char in brackets:
+    bracketCount = bracketCount + 1
+    if (not s.isEmpty()):
+        if (s.peek() == ")"):
+            print(bracketCount - 1)
+    
     if (not s.isEmpty() and s.peek() == "(" and char == ")"):
         s.pop()
     else:
